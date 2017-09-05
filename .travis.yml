@@ -18,14 +18,12 @@ addons:
       ## https://erlang.mk/guide/installation.html".
       - make
 before_install:
-  - make -v
+  - make --version
 script:
   - make ${JOB:?}
 matrix:
   include:
-    - language: erlang
-      otp_release: 20.0.1
+    - otp_release: 20.0.1
       env: JOB=edoc
 env:
-  - JOB=tests
-  - JOB=dialyze
+  - JOB=check
